@@ -1,0 +1,11 @@
+NAME="SereneLinux"
+VERSION="6.5.0 (Develop)"
+ID=serenelinux
+ID_LIKE=ubuntu
+PRETTY_NAME="SereneLinux19q4.6.5.0"
+VERSION_ID="6.5.0"
+HOME_URL="https://serenelinux.com/"
+SUPPORT_URL="https://osdn.net/projects/serene/forums/"
+BUG_REPORT_URL="https://osdn.net/projects/serene/forums/"
+VERSION_CODENAME=develop
+UBUNTU_CODENAME=bionic
