@@ -1,13 +1,13 @@
-#!/usr/bin/env bash -e
+#!/bin/bash -e
 if [ $UID != 0 ]; then
     echo "You have to run this as root." 1>&2
     exit 1
 fi
 CODENAME=develop
-VERSION=$(/home/serene/devtools/getversion.py)
+VERSION=$(/home/serene/serene-devtools/getversion.py)
 
 apt-get update && apt-get upgrade -y
-
+cd /home/serene/serene-devtools
 echo "SereneLinux ${VERSION} \n \l" > base-files/etc/issue
 echo "SereneLinux $VERSION" > base-files/etc/issue.net
 sed -ie s/DISTRIB_DESCRIPTION=\.*/DISTRIB_DESCRIPTION=\"SereneLinux${VERSION}\"/g base-files/etc/lsb-release
