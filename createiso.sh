@@ -16,7 +16,7 @@ sed -ie s/'PRETTY_NAME=\.\*'/PRETTY_NAME=\"SereneLinux${VERSION}\"/g base-files/
 sed -ie s/'VERSION_ID=\.\*'/VERSION_ID=\"${VERSION: -5}\"/g base-files/etc/os-release
 sed -ie s/'VERSION_CODENAME=\.\*'/VERSION_CODENAME=\"${CODENAME}\"/g base-files/etc/os-release
 sed -ie s/'Version=\.\*'/Version=${VERSION: -5}/g base-files/etc/xdg/kcm-about-distrorc
-sed -ie s/'Variant=\.\*'/"Variant=${CODENAME} Release"/g base-files/etc/xdg/kcm-about-distrorc
+sed -ie s/'Variant=.*'/"Variant=${CODENAME} Release"/g base-files/etc/xdg/kcm-about-distrorc
 sed -ie s/'+serenelinux\.\*'/+serenelinux${VERSION}/g base-files/DEBIAN/control
 
 dpkg -b base-files
