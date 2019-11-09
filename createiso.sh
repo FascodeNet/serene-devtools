@@ -20,7 +20,7 @@ sed -ie s/'Variant=.*'/"Variant=${CODENAME} Release"/g base-files/etc/xdg/kcm-ab
 sed -ie s/'+serenelinux.*'/+serenelinux${VERSION}/g base-files/DEBIAN/control
 
 dpkg -b base-files
-apt-get install -fy  ./base-files.deb
+apt-get install -y --allow-downgrades  ./base-files.deb
 
 apt-get autoremove --purge -y && apt-get clean
 rm -rf /var/cache/* \
