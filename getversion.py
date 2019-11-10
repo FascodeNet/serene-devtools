@@ -6,8 +6,8 @@ import os
 import signal
 
 date = datetime.datetime.now()
-year = date.year
 quoter = -(-date.month // 3) - 1 if date.month >= 3 else 4
+year = date.year if quoter != 4 else date.year - 1
 
 root = tkinter.Tk()
 root.title("SereneLinux ISO Builder")
@@ -43,7 +43,7 @@ def cleackd(root):
     print(label + "." + mejorver.get() + "." + subver.get() + "." + lastver.get())
     # Kill process
     root.destroy()
-    
+
 button = tkinter.Button(text="OK", command=lambda : cleackd(root) )
 button.place(x=240, y=10)
 
