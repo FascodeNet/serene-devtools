@@ -5,23 +5,23 @@ if [ $UID != 0 ]; then
 fi
 CODENAME=develop
 VERSION=$(/home/serene/serene-devtools/getversion.py)
+WORKDIR=$(pwd)
+BASE_FILES="${WORKDIR}/base-files-10.1ubuntu2.7"
 
 apt-get update && apt-get upgrade -y
 cd /home/serene/serene-devtools
-echo "SereneLinux ${VERSION} \n \l" > base-files/etc/issue
-echo "SereneLinux $VERSION" > base-files/etc/issue.net
-sed -ie s/'DISTRIB_DESCRIPTION=.*'/DISTRIB_DESCRIPTION=\"SereneLinux${VERSION}\"/g base-files/etc/lsb-release
-sed -ie s/'VERSION=.*'/"VERSION=\"${VERSION: -5} \(${CODENAME}\)\""/g base-files/etc/os-release
-sed -ie s/'PRETTY_NAME=.*'/PRETTY_NAME=\"SereneLinux${VERSION}\"/g base-files/etc/os-release
-sed -ie s/'VERSION_ID=.*'/VERSION_ID=\"${VERSION: -5}\"/g base-files/etc/os-release
-sed -ie s/'VERSION_CODENAME=.*'/VERSION_CODENAME=\"${CODENAME}\"/g base-files/etc/os-release
-sed -ie s/'Version=.*'/Version=${VERSION: -5}/g base-files/etc/xdg/kcm-about-distrorc
-sed -ie s/'Variant=.*'/"Variant=${CODENAME} Release"/g base-files/etc/xdg/kcm-about-distrorc
-sed -ie s/'+serenelinux.*'/+serenelinux${VERSION}/g base-files/DEBIAN/control
+echo "SereneLinux ${VERSION} \n \l" > ${BASE_FILES}/etc/issue
+echo "SereneLinux $VERSION" > ${BASE_FILES}/etc/issue.net
+sed -ie s/'DISTRIB_DESCRIPTION=.*'/DISTRIB_DESCRIPTION=\"SereneLinux${VERSION}\"/g ${BASE_FILES}/etc/lsb-release
+sed -ie s/'PRETTY_NAME=.*'/PRETTY_NAME=\"SereneLinux${VERSION}\"/g ${BASE_FILES}/etc/os-release
 
-dpkg -b base-files
-apt-get install -y --allow-downgrades  ./base-files.deb
+cd $BASE_FILES
+dch -v "${BASE_FILES:11}serene${VERSION:5}"
+debuild -us -uc
+cd ..
+apt-get install -y --allow-downgrades  ./${BASE_FILES}.deb
 
+cd $WORKDIR
 apt-get autoremove --purge -y && apt-get clean
 rm -rf /var/cache/* \
 /var/log/* \

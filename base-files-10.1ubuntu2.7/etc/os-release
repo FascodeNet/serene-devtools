@@ -1,0 +1,11 @@
+NAME="Ubuntu"
+VERSION="18.04.3 LTS (Bionic Beaver)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 18.04.3 LTS"
+VERSION_ID="18.04"
+HOME_URL="https://serenelinux.com/"
+SUPPORT_URL="https://twitter.com/yamad_linuxer"
+BUG_REPORT_URL="https://osdn.net/projects/serene/forums/"
+VERSION_CODENAME=bionic
+UBUNTU_CODENAME=bionic
