@@ -28,8 +28,8 @@ rm -rf /var/cache/* \
 /var/tmp/* \
 /var/crash/* \
 /var/backups/* \
-/tmp/* \
 /root/.bash_history \
 /home/serene/.bash_history \
 /home/serene/.cache/*
+
 /usr/share/bodhibuilder-gtk/bodhibuilder-gtk.py
