@@ -24,10 +24,7 @@ apt-get install -y --allow-downgrades  ./${BASE_FILES}.deb
 cd $WORKDIR
 apt-get autoremove --purge -y && apt-get clean
 rm -rf /var/cache/* \
-/var/log/* \
 /var/tmp/* \
-/var/crash/* \
-/var/backups/* \
 /root/.bash_history \
 /home/serene/.bash_history \
 /home/serene/.cache/*
