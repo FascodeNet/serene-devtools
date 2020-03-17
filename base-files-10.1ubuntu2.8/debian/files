@@ -1,0 +1,4 @@
+base-files-dbgsym_10.1ubuntu2.8serene7.1_amd64.ddeb debug optional
+base-files_10.1ubuntu2.8serene7.1_amd64.buildinfo admin required
+base-files_10.1ubuntu2.8serene7.1_amd64.deb admin required
+lsb-release-udeb_10.1ubuntu2.8serene7.1_all.udeb debian-installer extra
