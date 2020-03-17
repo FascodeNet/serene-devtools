@@ -10,6 +10,10 @@ echo "SereneLinux ${VERSION} \n \l" > ${BASE_FILES_DIR}/etc/issue
 echo "SereneLinux $VERSION" > ${BASE_FILES_DIR}/etc/issue.net
 sed -i"" -e s/'DISTRIB_DESCRIPTION=.*'/DISTRIB_DESCRIPTION=\"SereneLinux${VERSION}\"/g ${BASE_FILES_DIR}/etc/lsb-release
 sed -i"" -e s/'PRETTY_NAME=.*'/PRETTY_NAME=\"SereneLinux${VERSION}\"/g ${BASE_FILES_DIR}/etc/os-release
+sed -i"" -e s/'HOME_URL=.*'/HOME_URL=\"https:\/\/serenelinux.com\/\"/g ${BASE_FILES_DIR}/etc/os-release
+sed -i"" -e s/'SUPPORT_URL=.*'/SUPPORT_URL=\"https:\/\/twitter.com\/SereneDevJP\/\"/g ${BASE_FILES_DIR}/etc/os-release
+sed -i"" -e s/'BUG_REPORT_URL=.*'/BUG_REPORT_URL=\"https:\/\/serenelinux.net\/\"/g ${BASE_FILES_DIR}/etc/os-release
+
 
 cd $BASE_FILES_DIR
 dch -v ${BASE_FILES:11}serene${VERSION:5}
