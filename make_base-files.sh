@@ -3,7 +3,7 @@ set -e
 CODENAME=develop
 VERSION=$(/home/ksmt/git/serene-devtools/genversion.py)
 WORKDIR=$(pwd)
-BASE_FILES_DIR="${WORKDIR}/base-files-11ubuntu3"
+BASE_FILES_DIR="${WORKDIR}/base-files-11ubuntu4"
 BASE_FILES=${BASE_FILES_DIR##*/}
 
 echo "SereneLinux ${VERSION} \n \l" > ${BASE_FILES_DIR}/etc/issue
@@ -14,7 +14,9 @@ sed -i"" -e s!'HOME_URL=.*'!HOME_URL=\"https\:\/\/serenelinux.com\/\"!g ${BASE_F
 sed -i"" -e s!'SUPPORT_URL=.*'!SUPPORT_URL=\"https:\/\/twitter.com\/SereneDevJP\/\"!g ${BASE_FILES_DIR}/etc/os-release
 sed -i"" -e s!'BUG_REPORT_URL=.*'!BUG_REPORT_URL=\"https:\/\/serenelinux.net\/\"!g ${BASE_FILES_DIR}/etc/os-release
 
-sudo docker run -it builddeb -v out:/deb -e VERSION=$VERSION -e BASE_FILES=$BASE_FILES
+echo $WORKDIR
+sudo docker build -t builddeb ${WORKDIR}
+sudo docker run -e VERSION="$VERSION" -e BASE_FILES="$BASE_FILES" -e BASE_FILES_DIR="$BASE_FILES" -v ${WORKDIR}/out:/deb -it builddeb /debuild/debuild.sh
 #cd $BASE_FILES_DIR
 #dch -v ${BASE_FILES:11}serene${VERSION:5}
 #debuild -us -uc
