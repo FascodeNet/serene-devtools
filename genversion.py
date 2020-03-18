@@ -11,7 +11,7 @@ year = date.year if quoter != 4 else date.year - 1
 
 root = tkinter.Tk()
 root.title("SereneLinux ISO Builder")
-root.geometry("300x50")
+root.geometry("200x50")
 
 #Label
 label = str(year)[2:] + "q" + str(quoter)
@@ -30,21 +30,14 @@ subver = tkinter.ttk.Combobox(root, state='readonly', width=1)
 subver["values"] = ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
 subver.current(0)
 subver.place(x=95, y=10)
-subver_piliod = tkinter.Label(text=" . ")
-subver_piliod.place(x=120, y=10)
-
-lastver = tkinter.ttk.Combobox(root, state='readonly', width=1)
-lastver["values"] = ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
-lastver.current(0)
-lastver.place(x=135, y=10)
 
 #Button
 def cleackd(root):
-    print(label + "." + mejorver.get() + "." + subver.get() + "." + lastver.get())
+    print(label + "." + mejorver.get() + "." + subver.get())
     # Kill process
     root.destroy()
 
 button = tkinter.Button(text="OK", command=lambda : cleackd(root) )
-button.place(x=240, y=10)
+button.place(x=150, y=7)
 
 root.mainloop()
