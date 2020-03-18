@@ -6,7 +6,7 @@ import os
 import signal
 
 date = datetime.datetime.now()
-quoter = -(-date.month // 3) - 1 if date.month >= 3 else 4
+quoter = -(-date.month // 3) - 1 if date.month >= 4 else 4
 year = date.year if quoter != 4 else date.year - 1
 
 root = tkinter.Tk()
