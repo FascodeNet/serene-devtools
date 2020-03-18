@@ -16,6 +16,5 @@ sed -i"" -e s!'HOME_URL=.*'!HOME_URL=\"https\:\/\/serenelinux.com\/\"!g ${BASE_F
 sed -i"" -e s!'SUPPORT_URL=.*'!SUPPORT_URL=\"https:\/\/twitter.com\/SereneDevJP\/\"!g ${BASE_FILES_DIR}/etc/os-release
 sed -i"" -e s!'BUG_REPORT_URL=.*'!BUG_REPORT_URL=\"https:\/\/serenelinux.net\/\"!g ${BASE_FILES_DIR}/etc/os-release
 
-echo $WORKDIR
 sudo docker build -t builddeb ${WORKDIR}
 sudo docker run -e VERSION="$VERSION" -e BASE_FILES="$BASE_FILES" -e BASE_FILES_DIR="$BASE_FILES" -e H_UGID="${UID}:$(id -u)" -v ${WORKDIR}/out:/deb -it builddeb /debuild/debuild.sh
