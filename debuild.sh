@@ -6,7 +6,20 @@ fi
 
 export EDITOR=vim
 cd /debuild/build/$BASE_FILES_DIR
-dch -v ${BASE_FILES:11}serene${VERSION:5}
+
+cat <<EOF > changelog.new
+
+base-files (${BASE_FILES:11}serene${VERSION:5}) focal; urgency=medium
+
+  * SereneLinux${VERSION}
+
+ -- SereneLinux <serenelinux.dev@gmail.com>  $(date "+%a, %d %b %Y %H:%M:%S +0000")
+
+EOF
+cat debian/changelog >> changelog.new
+cat changelog.new > debian/changelog
+rm changelog.new
+
 debuild -us -uc
 cd ..
 tar cf ${BASE_FILES}serene${VERSION:5}.tar \
