@@ -1,10 +1,10 @@
 FROM ubuntu:20.04
-ENV VERSION base-files-11ubuntu4
-ENV UID 65587
+ARG VERSION base-files-11ubuntu4
+ARG UID 65587
 RUN sed -i"" -e 's%http://[^ ]\+%mirror://mirrors.ubuntu.com/mirrors.txt%g' /etc/apt/sources.list \
 && apt-get update \
 && apt-get -y upgrade \
-&& apt-get -y install build-essential devscripts zstd gawk libc6 libcrypt1 debhelper dh-systemd apt-utils \
+&& apt-get -y install build-essential devscripts zstd gawk libc6 libcrypt1 debhelper dh-systemd apt-utils --no-install-recommends \
 && rm -rf /tmp/* /var/tmp/* \
 && apt-get clean
 RUN useradd -m -u ${UID} docker 
