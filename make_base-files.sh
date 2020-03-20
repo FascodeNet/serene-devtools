@@ -2,7 +2,7 @@
 set -e
 CODENAME=develop
 WORKDIR=$(pwd)
-VERSION=$($[WORKDIR}/genversion.py)
+VERSION=$(${WORKDIR}/genversion.py)
 BASE_FILES_DIR="${WORKDIR}/base-files-11ubuntu4"
 BASE_FILES=${BASE_FILES_DIR##*/}
 H_UID=${UID}
