@@ -39,6 +39,6 @@ base-files_${BASE_FILES:11}serene${VERSION:5}_amd64.changes \
 base-files_${BASE_FILES:11}serene${VERSION:5}_amd64.deb \
 lsb-release-udeb_${BASE_FILES:11}serene${VERSION:5}_all.udeb
 zstd ${BASE_FILES}serene${VERSION:5}.tar
-mv *.xz /deb
-mv *.zst /deb
-chown -R ${H_UGID} /deb
+sudo mv *.xz /deb 2>/dev/null
+mv *.zst /deb 2>/dev/null
+chown -R ${H_UGID} /deb 2>/dev/null
