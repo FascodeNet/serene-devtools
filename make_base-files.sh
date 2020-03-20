@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 CODENAME=develop
-VERSION=$(/home/ksmt/git/serene-devtools/genversion.py)
 WORKDIR=$(pwd)
+VERSION=$($[WORKDIR}/genversion.py)
 BASE_FILES_DIR="${WORKDIR}/base-files-11ubuntu4"
 BASE_FILES=${BASE_FILES_DIR##*/}
 H_UID=${UID}
