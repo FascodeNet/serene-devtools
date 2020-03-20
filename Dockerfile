@@ -8,7 +8,7 @@ RUN sed -i"" -e 's%http://[^ ]\+%mirror://mirrors.ubuntu.com/mirrors.txt%g' /etc
 && rm -rf /tmp/* /var/tmp/* \
 && apt-get clean
 RUN useradd -m -u ${UID} docker 
-RUN mkdir -p /debuild/build /deb \
+RUN mkdir -p /debuild/build /deb
 ADD ./${VERSION} /debuild/build/${VERSION}
 ADD ./debuild.sh /debuild/debuild.sh
 RUN chmod +x /debuild/debuild.sh \
