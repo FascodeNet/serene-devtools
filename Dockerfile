@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
-ARG VERSION base-files-11ubuntu4
-ARG UID 65587
+ARG VERSION="base-files-11ubuntu4"
+ARG UID=65587
 RUN sed -i"" -e 's%http://[^ ]\+%mirror://mirrors.ubuntu.com/mirrors.txt%g' /etc/apt/sources.list \
 && apt-get update \
 && apt-get -y upgrade \
